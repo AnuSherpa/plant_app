@@ -14,8 +14,8 @@ class MyProvider with ChangeNotifier {
 
     querySnapshot.docs.forEach((categorydata) {
       categoryModel = CategoryModel(
-        image: categorydata.data()["image"],
-        name: categorydata.data()["name"],
+        image: categorydata["image"],
+        name: categorydata["name"],
       );
 
       list.add(categoryModel);
@@ -41,16 +41,16 @@ class MyProvider with ChangeNotifier {
         await FirebaseFirestore.instance.collection("homefeatureplant").get();
 
     querySnapshot.docs.forEach((featuredata) {
-      print("------------------->>" + featuredata.data()["contact"]);
+      print("------------------->>" + featuredata["contact"]);
       featureModel = FeatureModel(
-        plantTitle: featuredata.data()["plantTitle"],
-        plantSubTitle: featuredata.data()["plantSubTitle"],
-        image: featuredata.data()["image"],
-        price: featuredata.data()["price"].toDouble(),
-        rating: featuredata.data()["rating"],
-        location: featuredata.data()["location"],
-        offer: featuredata.data()["offer"],
-        contact: featuredata.data()["contact"],
+        plantTitle: featuredata["plantTitle"],
+        plantSubTitle: featuredata["plantSubTitle"],
+        image: featuredata["image"],
+        price: featuredata["price"].toDouble(),
+        rating: featuredata["rating"],
+        location: featuredata["location"],
+        offer: featuredata["offer"],
+        contact: featuredata["contact"],
       );
 
       list.add(featureModel);

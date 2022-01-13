@@ -366,7 +366,7 @@ class _HomePageState extends State<HomePage> {
         await FirebaseFirestore.instance.collection("homefeatureplant").get();
 
     querySnapshot.docs.forEach((featureData) {
-      if (featureData.data()["offer"] != "") notification_counter++;
+      if (featureData["offer"] != "") notification_counter++;
     });
   }
 

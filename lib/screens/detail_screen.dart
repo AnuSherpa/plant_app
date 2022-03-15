@@ -32,7 +32,7 @@ class _DetailScreenState extends State<DetailScreen> {
       String tralingTitle,
       String tralingSubsTitle}) {
     return Container(
-      height: 100,
+      height: 70,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -95,162 +95,165 @@ class _DetailScreenState extends State<DetailScreen> {
     });
 
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Color(0xfff8f8f8), //Color(0xfffef0f7),
+        backgroundColor: Color(0xfff8f8f8),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
             color: Colors.black,
             size: 30,
           ),
+          onPressed: () => Navigator.pop(context, false),
         ),
       ),
-    );
-    body:
-    Container(
-      child: Stack(
-        children: [
-          Column(
-            children: [
-              Expanded(
-                child: Container(
-                    // color: Color(0xfffef0f7),
-                    ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: double.infinity,
-                  color: Color(0xfff8f8f8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 15.0,
+      body: Container(
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Expanded(
+                  child: Container(
+                      //color: Color(0xfffef0f7),
                       ),
-                      Container(
-                        height: 160,
-                        alignment: Alignment.center,
-                        child: Text(
-                          widget.plantTitle,
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    width: double.infinity,
+                    //color: Color(0xfff8f8f8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 15.0,
+                        ),
+                        Container(
+                          height: 160,
+                          alignment: Alignment.center,
+                          child: Text(
+                            widget.plantTitle,
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Text(
+                          widget.plantSubTitle,
                           style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.grey,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        widget.plantSubTitle,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Container(
-                        height: 100,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "\$${totalPrice.toString()}",
-                                  style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                                Container(
-                                  height: 35,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    color: Colors.lightBlue[100],
-                                    borderRadius: BorderRadius.circular(10),
+                        Container(
+                          height: 100,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "\$${totalPrice.toString()}",
+                                    style: TextStyle(
+                                        color: Theme.of(context).accentColor,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.w900),
                                   ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            counter++;
-                                          });
-                                        },
-                                        child: Icon(
-                                          Icons.add,
-                                          size: 30,
-                                          color: Theme.of(context).accentColor,
-                                        ),
-                                      ),
-                                      Text(
-                                        counter.toString(),
-                                        style: TextStyle(
+                                  Container(
+                                    height: 35,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.lightBlue[100],
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              counter++;
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 30,
                                             color:
                                                 Theme.of(context).accentColor,
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w900),
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          if (counter > 1) {
-                                            setState(() {
-                                              counter--;
-                                            });
-                                          }
-                                        },
-                                        child: Icon(
-                                          Icons.remove,
-                                          size: 30,
-                                          color: Theme.of(context).accentColor,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          counter.toString(),
+                                          style: TextStyle(
+                                              color:
+                                                  Theme.of(context).accentColor,
+                                              fontSize: 25,
+                                              fontWeight: FontWeight.w900),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            if (counter > 1) {
+                                              setState(() {
+                                                counter--;
+                                              });
+                                            }
+                                          },
+                                          child: Icon(
+                                            Icons.remove,
+                                            size: 30,
+                                            color:
+                                                Theme.of(context).accentColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      _buildSingleDetailText(
-                        context: context,
-                        title: "Type",
-                        subsTitle: "Herbaceous, perennial",
-                        tralingTitle: "Indoor plant",
-                        tralingSubsTitle: "",
-                      ),
-                      _buildSingleDetailText(
-                        context: context,
-                        title: "Soil Type",
-                        subsTitle: "Loamy, well drained",
-                        tralingTitle: "Sun Exposure",
-                        tralingSubsTitle: "partial, shade",
-                      ),
-                      MyButton(
-                        name: "Call",
-                        onPressed: () async {
-                          launch('tel://$number');
-                        },
-                      ),
-                    ],
+                        _buildSingleDetailText(
+                          context: context,
+                          title: "Type",
+                          subsTitle: "Herbaceous, perennial",
+                          tralingTitle: "Indoor plant",
+                          tralingSubsTitle: "",
+                        ),
+                        _buildSingleDetailText(
+                          context: context,
+                          title: "Soil Type",
+                          subsTitle: "Loamy, well drained",
+                          tralingTitle: "Sun Exposure",
+                          tralingSubsTitle: "partial, shade",
+                        ),
+                        MyButton(
+                          name: "Call",
+                          onPressed: () async {
+                            launch('tel://$number');
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Positioned(
-            left: 70,
-            child: Image(
-                height: 260, width: 290, image: NetworkImage(widget.image)),
-          ),
-        ],
+              ],
+            ),
+            Positioned(
+              left: 70,
+              child: Image(
+                  height: 260, width: 290, image: NetworkImage(widget.image)),
+            ),
+          ],
+        ),
       ),
     );
   }

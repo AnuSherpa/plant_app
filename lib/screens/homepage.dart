@@ -710,10 +710,10 @@ class _OfferPageState extends State<OfferPage> {
           alignment: Alignment.topRight,
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 30),
+              padding: const EdgeInsets.only(right: 4),
               child: Container(
                 decoration: BoxDecoration(
-                    // color: Colors.blue,
+                    //color: Colors.blue,
                     borderRadius: BorderRadius.circular(30)),
                 height: 230,
                 width: 238,

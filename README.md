@@ -1,7 +1,7 @@
 # plant_app
 
 # Screenshot
-![EWTU9092](https://user-images.githubusercontent.com/83902065/167914899-588f7d1b-c2af-49eb-97b2-c574b4ea9e77.JPG)
+
 
 
 ## Getting Started

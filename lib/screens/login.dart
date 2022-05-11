@@ -69,7 +69,7 @@ class _LoginState extends State<Login> {
     if (email.text.isEmpty && password.text.isEmpty) {
       scaffold.currentState.showSnackBar(
         SnackBar(
-          content: Text("Both Fleid Is Empty"),
+          content: Text("Both Fleids are Empty"),
         ),
       );
     } else if (email.text.isEmpty) {
@@ -106,7 +106,7 @@ class _LoginState extends State<Login> {
   Widget _buildAllTextFormFiledPlace() {
     return Center(
       child: Container(
-        height: 300,
+        height: 200,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
